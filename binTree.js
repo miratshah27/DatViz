@@ -108,59 +108,92 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-let flag = false;
-function searchBT(root, key){
-    if(root == null){
-        console.log("Key not found");
-    }
-    else{
-        console.log("currently on "+root.data);
-        if(root.data==key){
-            flag=true;
-            paintSearchCircle(root, '#800080');
+async function searchBT(root, key){
+    if(root == null) return;
+    var treeNodeStack = [];
+    treeNodeStack.push(root);
+    while(treeNodeStack.length > 0){
+        var node = treeNodeStack[treeNodeStack.length - 1];
+        if(node.data == key){
+            await sleep(1000);
+            paintSearchCircle(node, '#800080');
+            treeNodeStack.pop();
             return;
+        }else{
+            await sleep(1000);
+            paintSearchCircle(node, '#FFFF00');
+            treeNodeStack.pop();
         }
-        paintSearchCircle(root, '#FFFF00');
-        if(flag!=true && root.left!=null){
-            searchBT(root.left, key);
+        if(node.right != null){
+            treeNodeStack.push(node.right);
         }
-        if(flag!=true && root.right!=null){
-            searchBT(root.right, key);
+        if(node.left != null){
+            treeNodeStack.push(node.left);
         }
     }
 }
 
 function paintSearchCircle(node, hexcode){
     ctx.beginPath();
-
+    
     ctx.strokeStyle = hexcode;
     ctx.lineWidth = 3;
-
+    
     ctx.arc(node.cordX,node.cordY,25,0,2*Math.PI);
     ctx.stroke();
 }
 
-function inorder(root){
-    if(root!=null){
-        inorder(root.left);
-        paintSearchCircle(root, '#0000FF');
-        inorder(root.right);
+async function inorder(root){
+    let stack = [];
+    let curr = root;
+    while(stack.length > 0 || curr != null){
+        if(curr != null){
+            stack.push(curr);
+            curr = curr.left;
+        }
+        else{
+            curr = stack.pop();
+            await sleep(1000);
+            paintSearchCircle(curr, '#0000FF');
+            curr = curr.right;
+        }
     }
 }
 
-function preorder(root){
-    if(root!=null){
-        paintSearchCircle(root, '#0000FF');
-        inorder(root.left);
-        inorder(root.right);
+async function preorder(root){
+    if(root == null) return;
+    var treeNodeStack = [];
+    treeNodeStack.push(root);
+    while(treeNodeStack.length > 0){
+        var node = treeNodeStack[treeNodeStack.length - 1];
+        await sleep(1000);
+        paintSearchCircle(node, '#0000FF');
+        treeNodeStack.pop();
+        if(node.right != null){
+            treeNodeStack.push(node.right);
+        }
+        if(node.left != null){
+            treeNodeStack.push(node.left);
+        }
     }
 }
 
-function postorder(root){
-    if(root!=null){
-        inorder(root.left);
-        inorder(root.right);
-        paintSearchCircle(root, '#0000FF');
+async function postorder(root){
+    let stack1 = [];
+    let stack2 = [];
+    if(root == null) return;
+    stack1.push(root);
+    while(stack1.length>0){
+        var temp = stack1.pop();
+        stack2.push(temp);
+
+        if(temp.left != null) stack1.push(temp.left);
+        if(temp.right != null) stack1.push(temp.right);
+    }
+    while(stack2.length > 0){
+        var temp = stack2.pop();
+        await sleep(1000);
+        paintSearchCircle(temp, '#0000FF');
     }
 }
 

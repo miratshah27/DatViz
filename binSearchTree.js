@@ -77,24 +77,28 @@ function insertBST(data){
     }      
 }
 
-function searchBST(data){
+async function searchBST(data){
     // await sleep(1000);
     let temp = bstRoot;
     if(temp != null && temp.data == data){
+        await sleep(1000);
         paintSearchCircle(bstRoot,'#800080');
         return;
     }
     while(temp.data != data){
         if(data < temp.data){
+            await sleep(1000);
             paintSearchCircle(temp, '#FFFF00');
             temp = temp.left;
         }
         else if(data > temp.data){
+            await sleep(1000);
             paintSearchCircle(temp, '#FFFF00');
             temp = temp.right;
         }
     }
     if(temp.data == data){
+        await sleep(1000);
         paintSearchCircle(temp, '#800080');
         return;
     }
