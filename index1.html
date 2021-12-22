@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Tree Visualizer</title>
-</head>
-<body>
-<!-- <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEzRP__6Pk&#x2F;view?utm_content=DAEzRP__6Pk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">DS-visualizer-ppt</a> by Karan Shah -->
+  </head>
+  <body>
+    <!-- <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEzRP__6Pk&#x2F;view?utm_content=DAEzRP__6Pk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">DS-visualizer-ppt</a> by Karan Shah -->
     <div class="sidebar">
+     <button class="accordion">Binary Tree</button>
+      <div class="bt menu">
+        <span class="data-structure-name">Binary Tree</span>
+        <input type="bt-number" class="input-insert-bt input" />
+        <button class="insert-but-bt button">Insert</button>
+        <input type="bt-number" class="input-search-bt input" />
+        <button class="search-but-bt button">Search</button>
+        <button class="bt-preorder button">Preorder</button>
+        <button class="bt-inorder button">Inorder</button>
+        <button class="bt-postorder button">Postorder</button>
+      </div>
 
-        <div class="bt menu">
-            <span class="data-structure-name">Binary Tree</span>
-            <input type="bt-number" class="input-insert-bt input" />
-            <button class="insert-but-bt button">Insert</button>
-            <input type="bt-number" class="input-search-bt input"/>
-            <button class="search-but-bt button">Search</button>
-            <button class="bt-preorder button">Preorder</button>
-            <button class="bt-inorder button">Inorder</button>
-            <button class="bt-postorder button">Postorder</button>
-        </div>
-        
-        <div class="bst menu">
-            <span class="data-structure-name">Binary Search Tree</span>
-            <input type="bst-number" class="input-insert-bst input" />
-            <button class="insert-but-bst button">Insert</button>
-            <input type="bst-number" class="input-search-bst input"/>
-            <button class="search-but-bst button">Search</button>
-            <button class="bst-preorder button">Preorder</button>
-            <button class="bst-inorder button">Inorder</button>
-            <button class="bst-postorder button">Postorder</button>
-        </div>
-        
+     <button class="accordion">Binary Search Tree</button>
+      <div class="bst menu">
+        <span class="data-structure-name">Binary Search Tree</span>
+        <input type="bst-number" class="input-insert-bst input" />
+        <button class="insert-but-bst button">Insert</button>
+        <input type="bst-number" class="input-search-bst input" />
+        <button class="search-but-bst button">Search</button>
+        <input type="bst-number" class="input-delete-bst input" />
+        <button class="delete-but-bst button">Delete</button>
+        <button class="bst-preorder button">Preorder</button>
+        <button class="bst-inorder button">Inorder</button>
+        <button class="bst-postorder button">Postorder</button>
+      </div>
     </div>
-    <canvas id="mycanvas" width="1000" height="550" style="border:1px solid #000000;"></canvas>
+
+    <canvas
+      id="mycanvas"
+      width="1000"
+      height="550"
+      style="border: 1px solid #000000"
+    ></canvas>
     <script src="./binTree.js"></script>
     <script src="./binSearchTree.js"></script>
-    <script src="./avlTree.js"></script>
-</body>
+    <!-- <script src="./avlTree.js"></script> -->
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "flex") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "flex";
+          }
+        });
+      }
+    </script>
+  </body>
 </html>

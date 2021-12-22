@@ -24,11 +24,32 @@
         </form>
         
         <br />
+
+        <form onsubmit="return kthmax(); return false;" id="f4">
+          <span> Extract Kth Maximum : </span>
+          <input class="button" type="text" id="kth_element" />
+          <input class="button" type="submit" value="Extract" />
+        </form>
+
+        <form onsubmit="return increase_key();" id="f5">
+          <span> Increase the Key : </span>
+          <input class="button" type="text" id="index" />
+          <input class="button" type="text" id="increasekey" />
+          <input class="button" type="submit" value="Extract" />
+        </form>
+        
+        <br />
+        <form onsubmit="return heap_sort()" id="f5">
+          <input class="button" type="submit" value="Heap Sort" />
+        </form>
+        <br />
+
         <form onsubmit="return true" id="f2">
           <span>Clear the canvas : </span>
           <input class="button" type="submit" value="Clear" />
         </form>
         <br />
+
       </div>
 
       <canvas

@@ -89,11 +89,11 @@ function insertion() {
 
 function insert_node_array(num, i) {
 
-        ctx.strokeRect(50 * (i + 1), 12, 50, 50);
-        ctx.fillText(arr[i], 50 * (i + 1) + 10, 45);
-        let child = parseInt(i);
-        swapping(child);
-    
+    ctx.strokeRect(50 * (i + 1), 12, 50, 50);
+    ctx.fillText(arr[i], 50 * (i + 1) + 10, 45);
+    let child = parseInt(i);
+    swapping(child);
+
 
     clearcanvas();
     var max_heap = new heap();
@@ -203,14 +203,7 @@ function drawline(x1, y1, x2, y2) {
 
 function extractmax() {
     alert("The Maximum Element in the binary Heap :" + arr[0]);
-    arr[0] = arr[arr.length - 1];
-    arr.pop();
-    ctx.clearRect(0, 0, 1000, 550);
-    heapify(0);
-
-    for (var i = 0; i < arr.length; i++)
-        insert_node_array(arr[i], i);
-
+    buildheapagain();
     return false;
 }
 
@@ -231,4 +224,62 @@ function heapify(i) {
         arr[largest] = temp;
         heapify(largest);
     }
+}
+
+// from array -> build heap
+// decrease key
+
+function increase_key() {
+    var i = document.getElementById('index').value;
+    var newnum = document.getElementById('increasekey').value;
+    arr[parseInt(i)] = parseInt(newnum);
+    var parent = parseInt(parseInt(i)/2);
+
+    while (i != 0 && arr[parent] < arr[i])
+    {
+       var temp = arr[i];
+       arr[i] = arr[parent];
+       arr[parent] = temp;
+       i = parent;
+    }
+    ctx.clearRect(0, 0, 1000, 550);
+    for (var i = 0; i < arr.length; i++)
+        insert_node_array(arr[i], i);
+        console.log("here")
+    return false;
+}   
+
+// heap sort
+function heap_sort() {
+    let sortedarray = [];
+    while (arr.length > 0) {
+        sortedarray.unshift(arr[0]);
+        buildheapagain();
+    }
+    alert( "Sorted Array : " + sortedarray)
+    return false;
+}
+
+function kthmax() {
+
+    var k = document.getElementById('kth_element').value;
+    for (var i = 0; i < parseInt(k) - 1; i++)
+        buildheapagain();
+
+    alert("The Kth Maximum Element in the binary Heap :" + arr[0]);
+    return false;
+}
+
+function buildheapagain() {
+    arr[0] = arr[arr.length - 1];
+    arr.pop();
+    ctx.clearRect(0, 0, 1000, 550);
+    heapify(0);
+
+    for (var i = 0; i < arr.length; i++)
+        insert_node_array(arr[i], i);
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

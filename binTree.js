@@ -1,4 +1,3 @@
-var canvas = document.getElementById("mycanvas");
 var btInput = document.getElementsByClassName("input-insert-bt")[0];
 var btInputButton = document.getElementsByClassName("insert-but-bt")[0];
 var btSearchInput =  document.getElementsByClassName("input-search-bt")[0];
@@ -6,6 +5,7 @@ var btSearchButton = document.getElementsByClassName("search-but-bt")[0];
 var btInorder = document.getElementsByClassName("bt-inorder")[0];
 var btPreorder = document.getElementsByClassName("bt-preorder")[0];
 var btPostorder = document.getElementsByClassName("bt-postorder")[0];
+var canvas = document.getElementById("mycanvas");
 var ctx = canvas.getContext("2d");
 
 class TreeNode{
