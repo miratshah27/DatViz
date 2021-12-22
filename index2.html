@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Heap - Array & Tree based Prototype</h1>
+    <div class="container">
+      <div class="sidebar">
+        <form onsubmit="return insertion()" id="f1" autocomplete="off">
+          <label for="box">Insert the new Element : </label>
+          <input class="button" type="text" id="input_element" />
+          <input class="button" type="submit" value="Insert" />
+        </form>
+        <br />
+        
+        <form onsubmit="return extractmax()" id="f3">
+          <span> Extract the Maximum : </span>
+          <input class="button" type="submit" value="Extract" />
+        </form>
+        
+        <br />
+        <form onsubmit="return true" id="f2">
+          <span>Clear the canvas : </span>
+          <input class="button" type="submit" value="Clear" />
+        </form>
+        <br />
+      </div>
+
+      <canvas
+        id="myspace"
+        width="1000"
+        height="550"
+        style="border: 1px solid #000000"
+      >
+      </canvas>
+    </div>
+    <!-- <script src="queue.js"></script> -->
+    <script src="heap.js"></script>
+  </body>
+</html>
