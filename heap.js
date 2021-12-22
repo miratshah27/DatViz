@@ -89,11 +89,11 @@ function insertion() {
 
 function insert_node_array(num, i) {
 
-        ctx.strokeRect(50 * (i + 1), 12, 50, 50);
-        ctx.fillText(arr[i], 50 * (i + 1) + 10, 45);
-        let child = parseInt(i);
-        swapping(child);
-    
+    ctx.strokeRect(50 * (i + 1), 12, 50, 50);
+    ctx.fillText(arr[i], 50 * (i + 1) + 10, 45);
+    let child = parseInt(i);
+    swapping(child);
+
 
     clearcanvas();
     var max_heap = new heap();
@@ -232,3 +232,38 @@ function heapify(i) {
         heapify(largest);
     }
 }
+
+
+// kth max
+// heap sort
+// from array -> build heap
+// decrease key
+
+function decrease_key(val, newval) {
+
+}
+
+// heap sort
+function heap_sort() {
+
+}
+
+function kthmax(k) {
+
+    for (var i = 0; i < k - 1; i++)
+    {
+        arr[0] = arr[arr.length - 1];
+        arr.pop();
+        ctx.clearRect(0, 0, 1000, 550);
+        heapify(0);
+        
+        for (var i = 0; i < arr.length; i++)
+            insert_node_array(arr[i], i);
+    }
+
+    alert("The Maximum Element in the binary Heap :" + arr[0]);
+    
+
+    return false;
+}
+
