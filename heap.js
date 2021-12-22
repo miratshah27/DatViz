@@ -226,15 +226,28 @@ function heapify(i) {
     }
 }
 
-
-// kth max
-// heap sort
 // from array -> build heap
 // decrease key
 
-function decrease_key(val, newval) {
+function increase_key() {
+    var i = document.getElementById('index').value;
+    var newnum = document.getElementById('increasekey').value;
+    arr[parseInt(i)] = parseInt(newnum);
+    var parent = parseInt(parseInt(i)/2);
 
-}
+    while (i != 0 && arr[parent] < arr[i])
+    {
+       var temp = arr[i];
+       arr[i] = arr[parent];
+       arr[parent] = temp;
+       i = parent;
+    }
+    ctx.clearRect(0, 0, 1000, 550);
+    for (var i = 0; i < arr.length; i++)
+        insert_node_array(arr[i], i);
+        console.log("here")
+    return false;
+}   
 
 // heap sort
 function heap_sort() {
