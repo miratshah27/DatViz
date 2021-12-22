@@ -203,14 +203,7 @@ function drawline(x1, y1, x2, y2) {
 
 function extractmax() {
     alert("The Maximum Element in the binary Heap :" + arr[0]);
-    arr[0] = arr[arr.length - 1];
-    arr.pop();
-    ctx.clearRect(0, 0, 1000, 550);
-    heapify(0);
-
-    for (var i = 0; i < arr.length; i++)
-        insert_node_array(arr[i], i);
-
+    buildheapagain();
     return false;
 }
 
@@ -245,22 +238,26 @@ function decrease_key(val, newval) {
 
 // heap sort
 function heap_sort() {
-
+    let sortedarray = [];
+    while (arr.length > 0) {
+        sortedarray.unshift(arr[0]);
+        buildheapagain();
+    }
+    alert( "Sorted Array : " + sortedarray)
+    return false;
 }
 
 function kthmax() {
 
     var k = document.getElementById('kth_element').value;
     for (var i = 0; i < parseInt(k) - 1; i++)
-            buildheapagain();
+        buildheapagain();
 
     alert("The Kth Maximum Element in the binary Heap :" + arr[0]);
-
-
     return false;
 }
 
- function buildheapagain() {
+function buildheapagain() {
     arr[0] = arr[arr.length - 1];
     arr.pop();
     ctx.clearRect(0, 0, 1000, 550);
@@ -268,7 +265,7 @@ function kthmax() {
 
     for (var i = 0; i < arr.length; i++)
         insert_node_array(arr[i], i);
- }
+}
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
