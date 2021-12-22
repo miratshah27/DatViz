@@ -82,7 +82,7 @@ async function searchBST(data){
     let temp = bstRoot;
     if(temp != null && temp.data == data){
         await sleep(1000);
-        paintSearchCircle(bstRoot,'#800080');
+        paintSearchCircle(bstRoot,'#00fcca');
         return;
     }
     while(temp.data != data){
@@ -99,8 +99,12 @@ async function searchBST(data){
     }
     if(temp.data == data){
         await sleep(1000);
-        paintSearchCircle(temp, '#800080');
+        paintSearchCircle(temp, '#00fcca');
         return;
+    }
+    else
+    {
+        alert("Element Not found");
     }
 }
 

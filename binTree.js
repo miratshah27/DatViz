@@ -154,7 +154,7 @@ async function inorder(root){
         else{
             curr = stack.pop();
             await sleep(1000);
-            paintSearchCircle(curr, '#0000FF');
+            paintSearchCircle(curr, '#ff3dff');
             curr = curr.right;
         }
     }
@@ -167,7 +167,7 @@ async function preorder(root){
     while(treeNodeStack.length > 0){
         var node = treeNodeStack[treeNodeStack.length - 1];
         await sleep(1000);
-        paintSearchCircle(node, '#0000FF');
+        paintSearchCircle(node, '#f56969');
         treeNodeStack.pop();
         if(node.right != null){
             treeNodeStack.push(node.right);
@@ -193,7 +193,7 @@ async function postorder(root){
     while(stack2.length > 0){
         var temp = stack2.pop();
         await sleep(1000);
-        paintSearchCircle(temp, '#0000FF');
+        paintSearchCircle(temp, '#69f5bd');
     }
 }
 
