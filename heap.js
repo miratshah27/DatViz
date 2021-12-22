@@ -248,22 +248,28 @@ function heap_sort() {
 
 }
 
-function kthmax(k) {
+function kthmax() {
 
-    for (var i = 0; i < k - 1; i++)
-    {
-        arr[0] = arr[arr.length - 1];
-        arr.pop();
-        ctx.clearRect(0, 0, 1000, 550);
-        heapify(0);
-        
-        for (var i = 0; i < arr.length; i++)
-            insert_node_array(arr[i], i);
-    }
+    var k = document.getElementById('kth_element').value;
+    for (var i = 0; i < parseInt(k) - 1; i++)
+            buildheapagain();
 
-    alert("The Maximum Element in the binary Heap :" + arr[0]);
-    
+    alert("The Kth Maximum Element in the binary Heap :" + arr[0]);
+
 
     return false;
 }
 
+ function buildheapagain() {
+    arr[0] = arr[arr.length - 1];
+    arr.pop();
+    ctx.clearRect(0, 0, 1000, 550);
+    heapify(0);
+
+    for (var i = 0; i < arr.length; i++)
+        insert_node_array(arr[i], i);
+ }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
