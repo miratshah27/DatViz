@@ -1,3 +1,12 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-image: url("./DS-visualizer-ppt.gif");
+  background-size: cover;
+  /* width: 100%; */
+}
 .container{
   display: flex;
   flex-direction: row;
@@ -14,7 +23,9 @@
   align-content: space-around;
   flex: 1;
 }
-
+h1{
+  padding: 10px;
+}
 .button{
   margin: 3px 3px;
   width: 100%;

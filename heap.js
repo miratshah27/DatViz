@@ -246,6 +246,9 @@ function increase_key() {
     for (var i = 0; i < arr.length; i++)
         insert_node_array(arr[i], i);
         console.log("here")
+
+    document.getElementById('index').value = '';
+    document.getElementById('increasekey').value = '';
     return false;
 }   
 
@@ -267,6 +270,7 @@ function kthmax() {
         buildheapagain();
 
     alert("The Kth Maximum Element in the binary Heap :" + arr[0]);
+    document.getElementById('kth_element').value = '';
     return false;
 }
 
