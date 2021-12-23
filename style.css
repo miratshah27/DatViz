@@ -2,8 +2,19 @@
     margin: 0;
     padding: 0;
 }
-
 body{
+    background-image: url("./DS-visualizer-ppt.gif");
+    background-size: cover;
+}
+body{
+    /* display: flex;
+    flex-direction: row; */
+    background-color: rgb(185, 184, 184);
+}
+h1{
+    padding-top: 10px;
+}
+section{
     display: flex;
     flex-direction: row;
     background-color: rgb(185, 184, 184);
@@ -60,7 +71,7 @@ body{
     color: black;
 }
 
-.data-structure-name{
+.data-structure-name, span{
     font-weight: 600;
     text-align: center;
     padding: 3px;

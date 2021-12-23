@@ -147,6 +147,7 @@ function deletion() {
     bstRoot = deletenode(bstRoot, btInput.value);
     ctx.clearRect(0, 0, 1000, 550);
     buildtree();
+    document.getElementsByClassName("input-delete-bst")[0].value = '';
 }
 
 function successor(node) {
