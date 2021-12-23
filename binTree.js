@@ -198,3 +198,6 @@ async function postorder(root){
 }
 
 //todo --> 1.delete button in bst.
+function clear(){
+    ctx.clearRect(0,0,1100,550);
+}

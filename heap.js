@@ -287,3 +287,6 @@ function buildheapagain() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
+function clear(){
+    ctx.clearRect(0,0,1100,550);
+}

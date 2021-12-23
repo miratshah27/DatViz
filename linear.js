@@ -103,3 +103,7 @@ function stackelement() {
     ctx.strokeRect(400, 480 - 30 * arr.length, 200, 30);
     ctx.fillText(arr[0], 480, 480 - 30 * arr.length + 20);
 }
+
+function clear(){
+    ctx.clearRect(0,0,1100,550);
+}
