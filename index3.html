@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Linear Data Structures Visualization</title>
+  </head>
+  <body>
+    <!-- <a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAEzRP__6Pk&#x2F;view?utm_content=DAEzRP__6Pk&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">DS-visualizer-ppt</a> by Karan Shah -->
+    <!-- <div class="all"> -->
+      
+      <h1>Linear Data Structures Visualization</h1><br>
+      <section>
+    <div class="sidebar">
+     <button class="accordion">Stack</button>
+      <div class="bt menu">
+        <span class="data-structure-name">Stack</span>
+        <input type="bt-number" class="input-insert-bt input" id = "pushvalue" />
+        <button class="push button" id = "push">Push</button>
+        <button class="pop button" id = "pop">Pop</button>
+        <form onsubmit="return true" id="f2">
+            <span>Clear the canvas : </span>
+            <input class="button" type="submit" value="Clear" />
+          </form>
+      </div>
+
+     <button class="accordion">Queue</button>
+      <div class="bst menu">
+        <span class="data-structure-name">Queue</span>
+        <input type="bst-number" class="input-insert-bst input" id = "enqueuevalue"/>
+        <button class= "insert-but-bst button" id = "enqueue">Enqueue</button>
+        <button class="search-but-bst button" id = "dequeue">Dequeue</button>
+        <form onsubmit="return true" id="f2">
+          <span>Clear the canvas : </span>
+          <input class="button" type="submit" value="Clear" />
+        </form>
+      </div>
+    </div>
+
+    <canvas
+      id="mycanvas"
+      width="1000"
+      height="550"
+      style="border: 1px solid #000000"
+    ></canvas>
+  </section>
+    
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.display === "flex") {
+            panel.style.display = "none";
+          } else {
+            panel.style.display = "flex";
+          }
+        });
+      }
+    </script>
+    <script src="linear.js"></script>
+  </body>
+</html>
